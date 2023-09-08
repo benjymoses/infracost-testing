@@ -212,7 +212,7 @@ resource "aws_rds_cluster" "aurora_mysql" {
 resource "aws_rds_cluster_instance" "cluster_instance" {
   identifier         = "aurora-cluster-demo-1"
   cluster_identifier = aws_rds_cluster.aurora_mysql.id
-  instance_class     = "db.t3.medium"
+  instance_class     = "db.m7g.16xlarge"
   db_subnet_group_name    = aws_db_subnet_group.default.id
   engine             = aws_rds_cluster.aurora_mysql.engine
   engine_version     = aws_rds_cluster.aurora_mysql.engine_version
@@ -220,7 +220,7 @@ resource "aws_rds_cluster_instance" "cluster_instance" {
 
 resource "aws_instance" "this" {
   ami           = var.ami_id
-  instance_type = "t3.micro"
+  instance_type = "m7gd.16xlarge"
   count = 1
   vpc_security_group_ids = [aws_security_group.lambda_sg.id, aws_security_group.ec2.id]
   subnet_id = aws_subnet.app[0].id
