@@ -2,11 +2,4 @@ version 0.1
 projects:
   - path: .
     name: flat-project
-  - path: ./apigw-http-api-lambda-rds-proxy-terraform
-    name: complex-project
-    terraform_var_files:
-      - ./vpc-rds-setup/variables.tf
-  - path: ./apigw-http-api-lambda-rds-proxy-terraform/vpc-rds-setup
-    name: complex-project-resources
-    terraform_var_files:
-      - ./vpc-rds-setup/variables.tf
+  
